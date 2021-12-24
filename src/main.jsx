@@ -5,6 +5,7 @@ import App from './App'
 import { createStore } from 'redux'
 import { Provider } from 'react-redux' 
 import ShopCart from './store/reducers'
+import './assets/styles.less'
 let store = createStore(ShopCart)
 ReactDOM.render(
   <React.StrictMode>

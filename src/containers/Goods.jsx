@@ -1,9 +1,10 @@
 import React from 'react'
-
+import { connect } from 'react-redux'
+import { addGood } from '../store/actions/index'
 let GoodsList = [{
   name: '手机',
   price: 5000
-},{
+}, {
   name: '电脑',
   price: 6000
 }]
@@ -11,9 +12,12 @@ let GoodsList = [{
 let Goods = ({ dispatch }) => {
   return (
     <div className='good-box'>
-      {GoodsList.map((item,index) => {
+      {GoodsList.map((item, index) => {
         return (
-          <div key={index} className='good-list'>
+          <div key={index} className='good-list' 
+            onClick={() => 
+              {dispatch(addGood(item.name, item.price))}}
+          >
             <div>{item.name}</div>
             <div>{item.price}</div>
           </div>
@@ -22,5 +26,5 @@ let Goods = ({ dispatch }) => {
     </div>
   )
 }
-
+Goods = connect()(Goods)
 export default Goods
