@@ -6,3 +6,10 @@ export const addGood = (id, name, price) => {
     price
   }
 }
+
+export const addCount = (id) => {
+  return {
+    type: 'ADD_COUNT',
+    id
+  }
+}

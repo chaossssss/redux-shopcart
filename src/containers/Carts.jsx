@@ -9,7 +9,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    oonShopClick: (id, name, price) => {
+    onShopClick: (id, name, price) => {
       dispatch(addGood(id, name, price))
     }
   }

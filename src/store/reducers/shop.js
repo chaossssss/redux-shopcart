@@ -15,11 +15,20 @@ const shops = (state = [], action) => {
           }
         ]
       }else {
-        let good = state[result]
-        good.count = good.count + 1
-        let newState = Object.assign({}, ...state, good)
-        return [newState]
+        return state.map(item => {
+          if(item.id === action.id) {
+            item.count = item.count + 1
+          }
+          return item
+        })
       }
+      case 'ADD_COUNT':
+        return state.map(item => {
+          if(item.id === action.id) {
+            item.count = item.count + 1
+          }
+          return item
+        })
     default:
       return state
   }
