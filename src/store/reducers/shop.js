@@ -1,9 +1,10 @@
 const shops = (state = [], action) => {
+  let result = state.findIndex(item => {
+    return item.id === action.id
+  })
+  console.log("result", result)
   switch (action.type) {
     case 'ADD_GOOD':
-      let result = state.findIndex(item => {
-        return item.id === action.id
-      })
       if(result === -1) {
         return [
           ...state,
@@ -29,6 +30,21 @@ const shops = (state = [], action) => {
           }
           return item
         })
+      case 'SUB_COUNT':
+        if(state[result].count > 1) {
+          return state.map(item => {
+            if(item.id === action.id) {
+              item.count = item.count - 1
+              return item
+            }else{
+              return item
+            }
+          })
+        } else {
+          return state.filter(item => {
+            return item.id !== action.id
+          })
+        }
     default:
       return state
   }

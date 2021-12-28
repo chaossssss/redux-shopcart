@@ -13,3 +13,10 @@ export const addCount = (id) => {
     id
   }
 }
+
+export const subCount = (id) => {
+  return {
+    type: 'SUB_COUNT',
+    id
+  }
+}

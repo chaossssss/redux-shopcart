@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-let CartList = ({ shops }) => {
+let CartList = ({ shops, onIncrease, onDecrease }) => {
   console.log("shops",shops)
   return (
     <div className='cart-box'>
@@ -11,9 +11,9 @@ let CartList = ({ shops }) => {
             <div>{shop.name}</div>
             <div>总价：{shop.price * shop.count}</div>
             <div>
-              <span className='decrease-btn'>-</span>
+              <span className='decrease-btn' onClick={() => onDecrease(shop.id)}>-</span>
               {shop.count}
-              <span className='increase-btn'>+</span>
+              <span className='increase-btn' onClick={() => onIncrease(shop.id)}>+</span>
             </div>
           </div>
         ))
